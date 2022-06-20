@@ -816,7 +816,8 @@ font-size: 6rem;
 }
 
 .ourPakeg{
-	background:url(../images/newsbg.jpg) no-repeat center top scroll;
+    /*Background image to set the Didar specials */
+	background:url() no-repeat center top scroll;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -840,7 +841,7 @@ font-size: 6rem;
 	
 }
 .single_pakeg_three{
-	background:url(../images/newsthree.jpg) left center no-repeat;
+	background:url(../images/dessert.jpg) left center no-repeat;
 	padding:30px;	
 	overflow:hidden;
 	margin-top:60px;	
@@ -915,7 +916,7 @@ font-size: 6rem;
 
 /* Footer Section CSS */
 .footer_widget{
-	background:url(../images/footerbg.jpg) center top no-repeat scroll;
+	background:url() center top no-repeat scroll;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
