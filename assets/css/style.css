@@ -864,7 +864,7 @@ font-size: 6rem;
 /* Mobail Apps Section css */
 
 .mobailapps{
-	background:url(../images/appsbg.jpg) top center no-repeat scroll;
+	background:url() top center no-repeat scroll;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
