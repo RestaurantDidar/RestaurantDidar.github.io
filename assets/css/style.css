@@ -884,7 +884,6 @@ font-size: 6rem;
 	margin-top:120px;
 }
 .single_monail_apps_text h4{
-	font-size:1.875rem;
 	margin-bottom:30px;
 }
 
@@ -1016,4 +1015,8 @@ font-size: 6rem;
 	margin-left: -6px;
 	text-decoration: none;
 
+}
+.discount
+{
+    font-size: 3rem;
 }
