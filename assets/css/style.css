@@ -1026,3 +1026,10 @@ font-size: 6rem;
     margin-left: 5px;
     color: white;
 }
+.undertext
+{
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    color: white;
+}
