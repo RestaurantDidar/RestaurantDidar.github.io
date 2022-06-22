@@ -1033,3 +1033,13 @@ font-size: 6rem;
     margin-left: 5px;
     color: white;
 }
+.imgtoEdit
+{
+    border-radius: 5%;
+    margin-top: 150px;
+}
+.discountTxt
+{
+    display: flex;
+    justify-content: center;
+}
