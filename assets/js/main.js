@@ -12,6 +12,26 @@ jQuery(document).ready(function ($) {
 		$(".preloader").delay(1000).fadeOut("slow");
 	});
 
+	// // https://dashboard.emailjs.com/admin/account
+	// emailjs.init('7ZikURkoIB5F5dLQB');
+
+    // window.onload = function() {
+    //     document.getElementById('contact-form').addEventListener('submit', function(event) {
+    //         event.preventDefault();
+    //         // generate a five digit number for the contact_number variable
+    //         this.contact_number.value = Math.random() * 100000 | 0;
+    //         // these IDs from the previous steps
+    //         for(var i = 0; i < 25; i++) {
+    //         emailjs.sendForm('service_dvj93yu', 'template_s04rsmd', this)
+    //             .then(function() {
+    //                 console.log('SUCCESS!');
+    //             }, function(error) {
+    //                 console.log('FAILED...', error);
+    //             });
+    //         }
+    //     });
+    // }
+
 
 
 

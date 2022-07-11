@@ -14,7 +14,7 @@ body{
 h1{font-size:90%;}
 
 .single_pakeg_text ul li {
-    background: url(../images/pkli.png) no-repeat left center;
+    background: url() no-repeat left center;
     padding: 5px 0px 5px 60px;
     margin-top: 15px;
 }

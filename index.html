@@ -21,6 +21,7 @@
         <!-- Responsives-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
+
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
@@ -299,7 +300,7 @@
 
                                 <div class="footer_socail_icon">
                                     <a href="https://www.facebook.com/RestaurantDidar/"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>                                    
+                                    <i class="fab fa-tiktok"></i>                        
                                     <a href="https://www.instagram.com/restaurantdidar/?hl=en"><i class="fa fa-instagram"></i></a>
                                     <a href="tel:514-733-5353"><i class="fa fa-phone"></i></a>
                                 </div>
@@ -328,24 +329,21 @@
                                 <h3>Contact Us</h3>
 
                                 <div class="single_widget_form text-left">
-                                    <form action="#" id="formid">
+                                    <form id="contact-form">
+                                        <input type="hidden" name="contact_number">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="First name" required="">
+                                            <input type="text" class="form-control" name="to_name" placeholder="First Name">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                                            <input type="email" class="form-control" name="from_name" placeholder="Your Email" required="">
                                         </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Subject">
-                                        </div> <!-- end of form-group -->
 
                                         <div class="form-group">
                                             <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
                                         </div>
 
-                                        <input type="submit" value="Send" class="btn btn-primary">
+                                        <input type="submit" value="send" class="btn btn-primary">
                                     </form>	                              
                                 </div>
                             </div>
@@ -362,6 +360,8 @@
 			<a href="#"><i class="fa fa-chevron-up"></i></a>
 		</div>		
 
+    
+
 
         <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
@@ -372,3 +372,4 @@
         <script src="assets/js/main.js"></script>
     </body>
 </html>
+
