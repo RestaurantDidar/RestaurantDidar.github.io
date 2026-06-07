@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Variables ───────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --saffron:   #E8912B;
       --saffron-dk:#C47620;
@@ -22,639 +20,115 @@
       --white:     #FFFFFF;
       --nav-h:     70px;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      overflow-x: hidden;
-    }
-
-    /* ── Utility ─────────────────────────────────────────────────── */
-    .container {
-      width: min(1140px, 92%);
-      margin-inline: auto;
-    }
-    .section-label {
-      font-family: 'Jost', sans-serif;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--saffron);
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.15;
-      color: var(--ink);
-    }
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: var(--saffron);
-      margin: 1rem 0 1.8rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: .75rem 2rem;
-      border-radius: 2px;
-      font-family: 'Jost', sans-serif;
-      font-weight: 600;
-      font-size: .85rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all .25s ease;
-    }
-    .btn-primary {
-      background: var(--saffron);
-      color: var(--white);
-      border: 2px solid var(--saffron);
-    }
-    .btn-primary:hover {
-      background: var(--saffron-dk);
-      border-color: var(--saffron-dk);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,.7);
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,.15);
-      border-color: var(--white);
-    }
-
-    /* ── Nav ─────────────────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      transition: background .35s, box-shadow .35s;
-    }
-    nav.scrolled {
-      background: rgba(26,18,8,.96);
-      box-shadow: 0 2px 20px rgba(0,0,0,.4);
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: .05em;
-    }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+    .container { width: min(1140px, 92%); margin-inline: auto; }
+    .section-label { font-family: 'Jost', sans-serif; font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; color: var(--ink); }
+    .divider { width: 60px; height: 3px; background: var(--saffron); margin: 1rem 0 1.8rem; }
+    .btn { display: inline-block; padding: .75rem 2rem; border-radius: 2px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all .25s ease; }
+    .btn-primary { background: var(--saffron); color: var(--white); border: 2px solid var(--saffron); }
+    .btn-primary:hover { background: var(--saffron-dk); border-color: var(--saffron-dk); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.7); }
+    .btn-outline:hover { background: rgba(255,255,255,.15); border-color: var(--white); }
+    nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 1000; display: flex; align-items: center; transition: background .35s, box-shadow .35s; }
+    nav.scrolled { background: rgba(26,18,8,.96); box-shadow: 0 2px 20px rgba(0,0,0,.4); }
+    nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--white); text-decoration: none; letter-spacing: .05em; }
     .nav-logo span { color: var(--saffron); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2.2rem;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,.85);
-      text-decoration: none;
-      font-size: .85rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      transition: color .2s;
-    }
+    .nav-links { list-style: none; display: flex; gap: 2.2rem; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--saffron); }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .nav-phone {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: .9rem;
-      transition: color .2s;
-    }
+    .nav-cta { display: flex; align-items: center; gap: 1rem; }
+    .nav-phone { color: var(--gold); text-decoration: none; font-weight: 600; font-size: .9rem; transition: color .2s; }
     .nav-phone:hover { color: var(--saffron); }
-
-    /* Language toggle */
-    .lang-toggle {
-      background: none;
-      border: 1.5px solid rgba(255,255,255,.45);
-      color: rgba(255,255,255,.85);
-      font-family: 'Jost', sans-serif;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      padding: .3rem .65rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all .2s;
-      line-height: 1;
-    }
-    .lang-toggle:hover {
-      border-color: var(--saffron);
-      color: var(--saffron);
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 6px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      transition: all .3s;
-    }
+    .lang-toggle { background: none; border: 1.5px solid rgba(255,255,255,.45); color: rgba(255,255,255,.85); font-family: 'Jost', sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .12em; padding: .3rem .65rem; border-radius: 2px; cursor: pointer; transition: all .2s; line-height: 1; }
+    .lang-toggle:hover { border-color: var(--saffron); color: var(--saffron); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: var(--nav-h); left: 0; right: 0;
-      background: rgba(26,18,8,.97);
-      padding: 1.5rem;
-      z-index: 999;
-      flex-direction: column;
-      gap: 0;
-    }
+    .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(26,18,8,.97); padding: 1.5rem; z-index: 999; flex-direction: column; gap: 0; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: rgba(255,255,255,.85);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      transition: color .2s;
-    }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-size: 1rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.08); transition: color .2s; }
     .mobile-menu a:hover { color: var(--saffron); }
-
-    /* ── Hero ────────────────────────────────────────────────────── */
-    #home {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(26,18,8,.82) 0%, rgba(184,52,27,.35) 100%),
-        url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1800&auto=format&fit=crop') center/cover no-repeat;
-    }
-    /* Grain overlay */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: .5;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding-block: calc(var(--nav-h) + 3rem) 4rem;
-    }
-    .hero-eyebrow {
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.05;
-      margin-bottom: 1.4rem;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--saffron);
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,.8);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 2.4rem;
-    }
+    #home { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,18,8,.82) 0%, rgba(184,52,27,.35) 100%), url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1800&auto=format&fit=crop') center/cover no-repeat; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; opacity: .5; }
+    .hero-content { position: relative; z-index: 2; padding-block: calc(var(--nav-h) + 3rem) 4rem; }
+    .hero-eyebrow { font-size: .75rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 1.4rem; }
+    .hero-title em { font-style: italic; color: var(--saffron); }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,.8); max-width: 520px; line-height: 1.7; margin-bottom: 2.4rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .hero-badge {
-      position: absolute;
-      bottom: 2.5rem;
-      right: min(5%, 80px);
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: var(--saffron);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      z-index: 3;
-      animation: spin-badge 20s linear infinite;
-    }
-    .hero-badge-text {
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--white);
-      line-height: 1.4;
-    }
-    @keyframes spin-badge {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Scroll indicator */
-    .scroll-cue {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .4rem;
-      color: rgba(255,255,255,.5);
-      font-size: .7rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-    .scroll-cue-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
-      animation: scroll-line 1.8s ease-in-out infinite;
-    }
-    @keyframes scroll-line {
-      0%,100% { opacity: .3; transform: scaleY(.5); }
-      50% { opacity: 1; transform: scaleY(1); }
-    }
-
-    /* ── Info Bar ────────────────────────────────────────────────── */
-    .info-bar {
-      background: var(--ink);
-      padding: 1.2rem 0;
-    }
-    .info-bar .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      color: rgba(255,255,255,.7);
-      font-size: .85rem;
-    }
+    .hero-badge { position: absolute; bottom: 2.5rem; right: min(5%, 80px); width: 110px; height: 110px; border-radius: 50%; background: var(--saffron); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem; z-index: 3; animation: spin-badge 20s linear infinite; }
+    .hero-badge-text { font-size: .6rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--white); line-height: 1.4; }
+    @keyframes spin-badge { to { transform: rotate(360deg); } }
+    .scroll-cue { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
+    .scroll-cue-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent); animation: scroll-line 1.8s ease-in-out infinite; }
+    @keyframes scroll-line { 0%,100% { opacity: .3; transform: scaleY(.5); } 50% { opacity: 1; transform: scaleY(1); } }
+    .info-bar { background: var(--ink); padding: 1.2rem 0; }
+    .info-bar .container { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .info-item { display: flex; align-items: center; gap: .6rem; color: rgba(255,255,255,.7); font-size: .85rem; }
     .info-item svg { color: var(--saffron); flex-shrink: 0; }
     .info-item strong { color: var(--white); }
-
-    /* ── About ───────────────────────────────────────────────────── */
-    #about {
-      padding: 6rem 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about-img-wrap {
-      position: relative;
-    }
-    .about-img-main {
-      width: 100%;
-      border-radius: 4px;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      display: block;
-    }
-    .about-img-accent {
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      width: 55%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 6px solid var(--cream);
-      box-shadow: 0 8px 32px rgba(0,0,0,.2);
-    }
-    .about-since {
-      position: absolute;
-      top: 1.5rem;
-      left: -1.5rem;
-      background: var(--saffron);
-      color: var(--white);
-      padding: .8rem 1.2rem;
-      text-align: center;
-      border-radius: 4px;
-      box-shadow: 0 4px 16px rgba(232,145,43,.4);
-    }
-    .about-since .year {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      display: block;
-      line-height: 1;
-    }
+    #about { padding: 6rem 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-main { width: 100%; border-radius: 4px; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .about-img-accent { position: absolute; bottom: -1.5rem; right: -1.5rem; width: 55%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; border: 6px solid var(--cream); box-shadow: 0 8px 32px rgba(0,0,0,.2); }
+    .about-since { position: absolute; top: 1.5rem; left: -1.5rem; background: var(--saffron); color: var(--white); padding: .8rem 1.2rem; text-align: center; border-radius: 4px; box-shadow: 0 4px 16px rgba(232,145,43,.4); }
+    .about-since .year { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; display: block; line-height: 1; }
     .about-since .since { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
-
-    .about-text p {
-      color: var(--ink-light);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      font-size: .97rem;
-    }
+    .about-text p { color: var(--ink-light); line-height: 1.8; margin-bottom: 1rem; font-size: .97rem; }
     .about-text p:last-of-type { margin-bottom: 1.8rem; }
-
-    /* ── Menu Highlights ─────────────────────────────────────────── */
-    #menu {
-      background: var(--ink);
-      padding: 6rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    #menu::before {
-      content: 'MENU';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      font-family: 'Playfair Display', serif;
-      font-size: 22vw;
-      font-weight: 900;
-      color: rgba(255,255,255,.02);
-      pointer-events: none;
-      white-space: nowrap;
-    }
+    #menu { background: var(--ink); padding: 6rem 0; position: relative; overflow: hidden; }
+    #menu::before { content: 'MENU'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Playfair Display', serif; font-size: 22vw; font-weight: 900; color: rgba(255,255,255,.02); pointer-events: none; white-space: nowrap; }
     #menu .section-label { color: var(--gold); }
     #menu .section-title { color: var(--white); }
     #menu .divider { background: var(--gold); }
-
-    .menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .menu-tabs {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .menu-tab {
-      padding: .5rem 1.2rem;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 2px;
-      color: rgba(255,255,255,.6);
-      background: none;
-      cursor: pointer;
-      font-family: 'Jost', sans-serif;
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      transition: all .25s;
-    }
-    .menu-tab.active, .menu-tab:hover {
-      background: var(--saffron);
-      border-color: var(--saffron);
-      color: var(--white);
-    }
-
+    .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .menu-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .menu-tab { padding: .5rem 1.2rem; border: 1px solid rgba(255,255,255,.15); border-radius: 2px; color: rgba(255,255,255,.6); background: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; transition: all .25s; }
+    .menu-tab.active, .menu-tab:hover { background: var(--saffron); border-color: var(--saffron); color: var(--white); }
     .menu-panel { display: none; }
     .menu-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; }
-
-    .menu-item {
-      background: rgba(255,255,255,.04);
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      transition: background .2s;
-    }
+    .menu-item { background: rgba(255,255,255,.04); padding: 1.5rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,.06); transition: background .2s; }
     .menu-item:hover { background: rgba(232,145,43,.08); }
-    .menu-item-name {
-      color: rgba(255,255,255,.85);
-      font-size: .95rem;
-      font-weight: 400;
-    }
-    .menu-item-price {
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
-
-    .menu-full-cta {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    /* ── Discount Banner ─────────────────────────────────────────── */
-    #discount {
-      background: var(--saffron);
-      padding: 4rem 0;
-    }
-    .discount-inner {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .discount-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .menu-item-name { color: rgba(255,255,255,.85); font-size: .95rem; font-weight: 400; }
+    .menu-item-price { color: var(--gold); font-weight: 700; font-size: 1rem; white-space: nowrap; }
+    .menu-full-cta { text-align: center; margin-top: 2.5rem; }
+    #discount { background: var(--saffron); padding: 4rem 0; }
+    .discount-inner { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+    .discount-icon { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .discount-icon svg { color: var(--white); }
     .discount-text { flex: 1; min-width: 200px; }
-    .discount-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: var(--white);
-      margin-bottom: .5rem;
-    }
+    .discount-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--white); margin-bottom: .5rem; }
     .discount-text p { color: rgba(255,255,255,.85); line-height: 1.6; font-size: .97rem; }
-    .discount-pill {
-      background: var(--white);
-      color: var(--saffron);
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 900;
-      padding: .8rem 1.8rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-
-    /* ── Location ────────────────────────────────────────────────── */
-    #location {
-      padding: 6rem 0;
-    }
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
+    .discount-pill { background: var(--white); color: var(--saffron); font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; padding: .8rem 1.8rem; border-radius: 4px; white-space: nowrap; }
+    #location { padding: 6rem 0; }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .location-details { display: flex; flex-direction: column; gap: 1.6rem; }
-    .location-detail {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .detail-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(232,145,43,.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .location-detail { display: flex; gap: 1rem; align-items: flex-start; }
+    .detail-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(232,145,43,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .detail-icon svg { color: var(--saffron); }
-    .detail-text h4 {
-      font-weight: 600;
-      font-size: .85rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: .3rem;
-    }
-    .detail-text p, .detail-text a {
-      color: var(--ink);
-      font-size: .97rem;
-      text-decoration: none;
-      line-height: 1.6;
-    }
+    .detail-text h4 { font-weight: 600; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: .3rem; }
+    .detail-text p, .detail-text a { color: var(--ink); font-size: .97rem; text-decoration: none; line-height: 1.6; }
     .detail-text a:hover { color: var(--saffron); }
-
-    .hours-grid {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: .4rem 1.5rem;
-      font-size: .9rem;
-    }
+    .hours-grid { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1.5rem; font-size: .9rem; }
     .hours-day { color: var(--ink-light); font-weight: 500; }
     .hours-time { color: var(--ink); }
-    .hours-closed { color: var(--red); font-weight: 600; }
-
-    .map-embed {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: 4px;
-      overflow: hidden;
-      border: none;
-      box-shadow: 0 8px 32px rgba(0,0,0,.1);
-    }
-
-    .social-row {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .6rem 1.2rem;
-      border: 1.5px solid rgba(26,18,8,.15);
-      border-radius: 2px;
-      color: var(--ink);
-      text-decoration: none;
-      font-size: .82rem;
-      font-weight: 600;
-      letter-spacing: .05em;
-      transition: all .2s;
-    }
-    .social-btn:hover {
-      border-color: var(--saffron);
-      color: var(--saffron);
-      background: rgba(232,145,43,.05);
-    }
-
-    /* ── Footer ──────────────────────────────────────────────────── */
-    footer {
-      background: var(--ink);
-      padding: 2.5rem 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--white);
-    }
+    .map-embed { width: 100%; aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; border: none; box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+    .social-row { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .social-btn { display: flex; align-items: center; gap: .5rem; padding: .6rem 1.2rem; border: 1.5px solid rgba(26,18,8,.15); border-radius: 2px; color: var(--ink); text-decoration: none; font-size: .82rem; font-weight: 600; letter-spacing: .05em; transition: all .2s; }
+    .social-btn:hover { border-color: var(--saffron); color: var(--saffron); background: rgba(232,145,43,.05); }
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--white); }
     .footer-logo span { color: var(--saffron); }
-    .footer-copy {
-      color: rgba(255,255,255,.4);
-      font-size: .8rem;
-    }
-    .footer-note {
-      color: rgba(255,255,255,.35);
-      font-size: .75rem;
-    }
-
-    /* ── Responsive ──────────────────────────────────────────────── */
+    .footer-copy { color: rgba(255,255,255,.4); font-size: .8rem; }
+    .footer-note { color: rgba(255,255,255,.35); font-size: .75rem; }
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
@@ -665,7 +139,6 @@
       .discount-inner { flex-direction: column; align-items: flex-start; }
       .discount-icon { display: none; }
     }
-
     @media (max-width: 600px) {
       .menu-panel.active { grid-template-columns: 1fr; }
       .hero-badge { display: none; }
@@ -675,16 +148,15 @@
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════════════════ -->
 <nav id="navbar">
   <div class="container">
     <a href="#home" class="nav-logo">Did<span>a</span>r</a>
     <ul class="nav-links">
-      <li><a href="#home"     data-en="Home"     data-fr="Accueil">Home</a></li>
-      <li><a href="#about"    data-en="About"    data-fr="À propos">About</a></li>
-      <li><a href="#menu"     data-en="Menu"     data-fr="Menu">Menu</a></li>
-      <li><a href="#discount" data-en="Offers"   data-fr="Offres">Offers</a></li>
-      <li><a href="#location" data-en="Find Us"  data-fr="Nous trouver">Find Us</a></li>
+      <li><a href="#home"     data-en="Home"        data-fr="Accueil">Home</a></li>
+      <li><a href="#about"    data-en="About"        data-fr="&Agrave; propos">About</a></li>
+      <li><a href="#menu"     data-en="Menu"         data-fr="Menu">Menu</a></li>
+      <li><a href="#discount" data-en="Offers"       data-fr="Offres">Offers</a></li>
+      <li><a href="#location" data-en="Find Us"      data-fr="Nous trouver">Find Us</a></li>
     </ul>
     <div class="nav-cta">
       <a href="tel:+15147335353" class="nav-phone">514 733 5353</a>
@@ -697,33 +169,31 @@
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home"     onclick="closeMobile()" data-en="Home"     data-fr="Accueil">Home</a>
-  <a href="#about"    onclick="closeMobile()" data-en="About"    data-fr="À propos">About</a>
+  <a href="#about"    onclick="closeMobile()" data-en="About"    data-fr="&Agrave; propos">About</a>
   <a href="#menu"     onclick="closeMobile()" data-en="Menu"     data-fr="Menu">Menu</a>
   <a href="#discount" onclick="closeMobile()" data-en="Offers"   data-fr="Offres">Offers</a>
   <a href="#location" onclick="closeMobile()" data-en="Find Us"  data-fr="Nous trouver">Find Us</a>
-  <a href="tel:+15147335353" onclick="closeMobile()">📞 514 733 5353</a>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Switch language">FR</button>
+  <a href="tel:+15147335353" onclick="closeMobile()">&#128222; 514 733 5353</a>
 </div>
 
-<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
 <section id="home">
   <div class="hero-bg"></div>
   <div class="container hero-content">
-    <p class="hero-eyebrow" data-en="Authentic Indian Cuisine · Montréal since 2015" data-fr="Cuisine indienne authentique · Montréal depuis 2015">Authentic Indian Cuisine · Montréal since 2015</p>
-    <h1 class="hero-title" data-en="A Taste of<br><em>Punjab</em><br>in Montréal" data-fr="Les saveurs du<br><em>Punjab</em><br>à Montréal">A Taste of<br><em>Punjab</em><br>in Montréal</h1>
-    <p class="hero-sub" data-en="Family recipes crafted with love — from the villages of Punjab to your table. Now also delivering. Give us a call!" data-fr="Des recettes familiales préparées avec amour — des villages du Punjab à votre table. Nous livrons maintenant aussi. Appelez-nous !">
-      Family recipes crafted with love — from the villages of Punjab to your table.
-      Now also delivering. Give us a call!
+    <p class="hero-eyebrow" data-en="Authentic Indian Cuisine &middot; Montr&eacute;al since 2015" data-fr="Cuisine indienne authentique &middot; Montr&eacute;al depuis 2015">Authentic Indian Cuisine &middot; Montr&eacute;al since 2015</p>
+    <h1 class="hero-title">A Taste of<br><em>Punjab</em><br>in Montr&eacute;al</h1>
+    <p class="hero-sub" data-en="Family recipes crafted with love &mdash; from the villages of Punjab to your table. Now also delivering. Give us a call!" data-fr="Des recettes familiales pr&eacute;par&eacute;es avec amour &mdash; des villages du Punjab &agrave; votre table. Nous livrons maintenant aussi. Appelez-nous&nbsp;!">
+      Family recipes crafted with love &mdash; from the villages of Punjab to your table. Now also delivering. Give us a call!
     </p>
     <div class="hero-actions">
       <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="View Full Menu" data-fr="Voir le menu complet">View Full Menu</a>
-      <a href="tel:+15147335353" class="btn btn-outline" data-en="Call to Order" data-fr="Commander par téléphone">Call to Order</a>
+      <a href="tel:+15147335353" class="btn btn-outline" data-en="Call to Order" data-fr="Commander par t&eacute;l&eacute;phone">Call to Order</a>
     </div>
   </div>
   <div class="hero-badge">
-    <p class="hero-badge-text">Since&nbsp;2015<br>★ ★ ★</p>
+    <p class="hero-badge-text">Since&nbsp;2015<br>&#9733; &#9733; &#9733;</p>
   </div>
   <div class="scroll-cue">
     <div class="scroll-cue-line"></div>
@@ -731,12 +201,11 @@
   </div>
 </section>
 
-<!-- ══ INFO BAR ══════════════════════════════════════════════════════ -->
 <div class="info-bar">
   <div class="container">
     <div class="info-item">
       <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>5987 Ave Victoria, <strong>Montréal</strong> H3W 2R9</span>
+      <span>5987 Ave Victoria, <strong>Montr&eacute;al</strong> H3W 2R9</span>
     </div>
     <div class="info-item">
       <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -744,61 +213,44 @@
     </div>
     <div class="info-item">
       <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span data-en="Tue–Sun <strong>11 am – 10 pm</strong> &nbsp;|&nbsp; Mon 13 am - 10 pm" data-fr="Mar–Dim <strong>11h – 22h</strong> &nbsp;|&nbsp; Lun <strong>15 - 22h</strong>">Tue–Sun <strong>11 am – 10 pm</strong> &nbsp;|&nbsp; Mon <strong>13 pm - 10 pm</strong></span>
+      <span id="info-hours">Tue&ndash;Sun <strong>11 am &ndash; 10 pm</strong> &nbsp;|&nbsp; Mon <strong>3 pm &ndash; 10 pm</strong></span>
     </div>
     <div class="info-item">
       <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span data-en="Now <strong>Delivering</strong> · BYOW" data-fr="Livraison <strong>disponible</strong> · APAV">Now <strong>Delivering</strong> · BYOW</span>
+      <span id="info-delivery">Now <strong>Delivering</strong> &middot; BYOW</span>
     </div>
   </div>
 </div>
 
-<!-- ══ ABOUT ══════════════════════════════════════════════════════════ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=800&auto=format&fit=crop"
-          alt="Didar Restaurant dining experience"
-          class="about-img-main"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&auto=format&fit=crop"
-          alt="Indian spices"
-          class="about-img-accent"
-        />
+        <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=800&auto=format&fit=crop" alt="Didar Restaurant dining experience" class="about-img-main" />
+        <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&auto=format&fit=crop" alt="Indian spices" class="about-img-accent" />
         <div class="about-since">
           <span class="year">2015</span>
           <span class="since">Est.</span>
         </div>
       </div>
-
       <div class="about-text">
         <p class="section-label" data-en="Our Story" data-fr="Notre histoire">Our Story</p>
-        <h2 class="section-title" data-en="A Family Passion<br>for Authentic Flavour" data-fr="Une passion familiale<br>pour les saveurs authentiques">A Family Passion<br>for Authentic Flavour</h2>
+        <h2 class="section-title" id="about-title">A Family Passion<br>for Authentic Flavour</h2>
         <div class="divider"></div>
-        <p data-en='The name <em>Didar</em> honours the memory of the late father of Paramjit Singh — a tribute as warm as the food he creates.' data-fr='Le nom <em>Didar</em> honore la mémoire du défunt père de Paramjit Singh — un hommage aussi chaleureux que sa cuisine.'>
-          The name <em>Didar</em> honours the memory of the late father of Paramjit Singh — a tribute as warm as the food he creates.
-        </p>
-        <p data-en="Paramjit's love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada — where he became head chef at the restaurant in 2005 before purchasing it in 2015." data-fr="L'amour de Paramjit pour la cuisine prend racine dans son village de Bhadas, au Punjab. Cuisinier pour ses proches dès son jeune âge, il a perfectionné son art en Allemagne, en Grèce, puis au Canada — où il est devenu chef en 2005 avant d'acquérir le restaurant en 2015.">
-          Paramjit's love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada — where he became head chef at the restaurant in 2005 before purchasing it in 2015.
-        </p>
-        <p data-en="In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today — a place where every dish tells a story of heritage and love." data-fr="En 2007, Kamaljit Kaur a rejoint Paramjit au Canada avec leurs trois enfants. Ensemble, ils ont fait de Didar ce qu'il est aujourd'hui — un endroit où chaque plat raconte une histoire de patrimoine et d'amour.">
-          In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today — a place where every dish tells a story of heritage and love.
-        </p>
+        <p id="about-p1">The name <em>Didar</em> honours the memory of the late father of Paramjit Singh &mdash; a tribute as warm as the food he creates.</p>
+        <p id="about-p2">Paramjit's love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada &mdash; where he became head chef at the restaurant in 2005 before purchasing it in 2015.</p>
+        <p id="about-p3">In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today &mdash; a place where every dish tells a story of heritage and love.</p>
         <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="See Our Menu" data-fr="Voir notre menu">See Our Menu</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ MENU ══════════════════════════════════════════════════════════ -->
 <section id="menu">
   <div class="container">
     <div class="menu-header">
       <div>
-        <p class="section-label" data-en="Didar Specials" data-fr="Spécialités Didar">Didar Specials</p>
+        <p class="section-label" data-en="Didar Specials" data-fr="Sp&eacute;cialit&eacute;s Didar">Didar Specials</p>
         <h2 class="section-title" style="color:var(--white)" data-en="Our Best" data-fr="Nos Meilleurs">Our Best</h2>
         <div class="divider" style="background:var(--gold)"></div>
       </div>
@@ -808,8 +260,6 @@
         <button class="menu-tab" onclick="showTab('desserts', this)" data-en="Desserts" data-fr="Desserts">Desserts</button>
       </div>
     </div>
-
-    <!-- Drinks -->
     <div class="menu-panel active" id="tab-drinks">
       <div class="menu-item"><span class="menu-item-name">Mango Lassi</span><span class="menu-item-price">$6</span></div>
       <div class="menu-item"><span class="menu-item-name">Mango Shake</span><span class="menu-item-price">$6</span></div>
@@ -817,19 +267,14 @@
       <div class="menu-item"><span class="menu-item-name">Fanta (Imported)</span><span class="menu-item-price">$5</span></div>
       <div class="menu-item"><span class="menu-item-name">Thums Up (Imported)</span><span class="menu-item-price">$5</span></div>
     </div>
-
-    <!-- Mains -->
     <div class="menu-panel" id="tab-mains">
       <div class="menu-item"><span class="menu-item-name">Amritsari Thali</span><span class="menu-item-price">$16</span></div>
       <div class="menu-item"><span class="menu-item-name">Channa Bhatura</span><span class="menu-item-price">$16</span></div>
       <div class="menu-item"><span class="menu-item-name">Chicken Briyani</span><span class="menu-item-price">$16</span></div>
-      <div class="menu-item"><span class="menu-item-name">Butter Chicken</span><span class="menu-item-price">$17.5</span></div>
-      <div class="menu-item"><span class="menu-item-name">Panner Butter Masala</span><span class="menu-item-price">$17.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Butter Chicken</span><span class="menu-item-price">$17.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Paneer Butter Masala</span><span class="menu-item-price">$17.50</span></div>
       <div class="menu-item"><span class="menu-item-name">Dal Makhni</span><span class="menu-item-price">$14</span></div>
-
     </div>
-
-    <!-- Desserts -->
     <div class="menu-panel" id="tab-desserts">
       <div class="menu-item"><span class="menu-item-name">Barfi</span><span class="menu-item-price">$3.50</span></div>
       <div class="menu-item"><span class="menu-item-name">Jalebi</span><span class="menu-item-price">$3.50</span></div>
@@ -837,15 +282,13 @@
       <div class="menu-item"><span class="menu-item-name">Ras Malai</span><span class="menu-item-price">$3.50</span></div>
       <div class="menu-item"><span class="menu-item-name">Gulab Jamun</span><span class="menu-item-price">$3.50</span></div>
     </div>
-
     <div class="menu-full-cta">
-      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:1rem;" data-en="* Prices subject to change without notice" data-fr="* Prix sujets à changement sans préavis">* Prices subject to change without notice</p>
-      <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="Download Full Menu PDF" data-fr="Télécharger le menu complet (PDF)">Download Full Menu PDF</a>
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:1rem;" data-en="* Prices subject to change without notice" data-fr="* Prix sujets &agrave; changement sans pr&eacute;avis">* Prices subject to change without notice</p>
+      <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="Download Full Menu PDF" data-fr="T&eacute;l&eacute;charger le menu complet (PDF)">Download Full Menu PDF</a>
     </div>
   </div>
 </section>
 
-<!-- ══ DISCOUNT ══════════════════════════════════════════════════════ -->
 <section id="discount">
   <div class="container">
     <div class="discount-inner">
@@ -853,24 +296,19 @@
         <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
       </div>
       <div class="discount-text">
-        <h2 data-en="Pick-Up Discount" data-fr="Rabais pour emporter">Pick-Up Discount</h2>
-        <p data-en='Spending between $40 and $100? You qualify for a 5% pick-up discount!<br/>Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> — we welcome it.' data-fr='Vous dépensez entre 40 $ et 100 $ ? Vous bénéficiez d'un rabais de 5 % à l'emporter !<br/>Informez simplement le caissier lors de la récupération. <strong>Apportez votre propre vin (APAV)</strong> — nous l'acceptons.'>
-          Spending between $40 and $100? You qualify for a 5% pick-up discount!<br/>
-          Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> — we welcome it.
-        </p>
+        <h2 id="discount-title">Pick-Up Discount</h2>
+        <p id="discount-body">Spending between $40 and $100? You qualify for a 5% pick-up discount!<br>Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> &mdash; we welcome it.</p>
       </div>
       <div class="discount-pill">5% OFF</div>
     </div>
   </div>
 </section>
 
-<!-- ══ LOCATION ══════════════════════════════════════════════════════ -->
 <section id="location">
   <div class="container">
     <p class="section-label" style="text-align:center" data-en="Come Visit Us" data-fr="Venez nous rendre visite">Come Visit Us</p>
-    <h2 class="section-title" style="text-align:center" data-en="Find Us in Montréal" data-fr="Trouvez-nous à Montréal">Find Us in Montréal</h2>
+    <h2 class="section-title" style="text-align:center" data-en="Find Us in Montr&eacute;al" data-fr="Trouvez-nous &agrave; Montr&eacute;al">Find Us in Montr&eacute;al</h2>
     <div class="divider" style="margin-inline:auto"></div>
-
     <div class="location-grid" style="margin-top:3rem">
       <div class="location-details">
         <div class="location-detail">
@@ -879,7 +317,7 @@
           </div>
           <div class="detail-text">
             <h4 data-en="Address" data-fr="Adresse">Address</h4>
-            <p>5987 Avenue Victoria<br>Montréal, Québec H3W 2R9</p>
+            <p>5987 Avenue Victoria<br>Montr&eacute;al, Qu&eacute;bec H3W 2R9</p>
           </div>
         </div>
         <div class="location-detail">
@@ -887,10 +325,12 @@
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="detail-text">
-            <h4 data-en="Opening Hours" data-fr="Heures d'ouverture">Opening Hours</h4>
+            <h4 data-en="Opening Hours" data-fr="Heures d&apos;ouverture">Opening Hours</h4>
             <div class="hours-grid">
-              <span class="hours-day" data-en="Monday" data-fr="Lundi">Monday</span><span class="hours-time" data-en="15:00 am – 10:00 pm" data-fr="15h00 – 22h00">15:00 am – 10:00 pm</span>
-              <span class="hours-day" data-en="Tue – Sun" data-fr="Mar – Dim">Tue – Sun</span><span class="hours-time" data-en="11:00 am – 10:00 pm" data-fr="11h00 – 22h00">11:00 am – 10:00 pm</span>
+              <span class="hours-day" data-en="Monday" data-fr="Lundi">Monday</span>
+              <span class="hours-time" data-en="3:00 pm &ndash; 10:00 pm" data-fr="15h00 &ndash; 22h00">3:00 pm &ndash; 10:00 pm</span>
+              <span class="hours-day" data-en="Tue &ndash; Sun" data-fr="Mar &ndash; Dim">Tue &ndash; Sun</span>
+              <span class="hours-time" data-en="11:00 am &ndash; 10:00 pm" data-fr="11h00 &ndash; 22h00">11:00 am &ndash; 10:00 pm</span>
             </div>
           </div>
         </div>
@@ -899,7 +339,7 @@
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div class="detail-text">
-            <h4 data-en="Phone" data-fr="Téléphone">Phone</h4>
+            <h4 data-en="Phone" data-fr="T&eacute;l&eacute;phone">Phone</h4>
             <a href="tel:+15147335353">514 733 5353</a>
           </div>
         </div>
@@ -912,7 +352,6 @@
             <a href="mailto:restaurantdidar@gmail.com">restaurantdidar@gmail.com</a>
           </div>
         </div>
-
         <div class="social-row">
           <a href="https://www.facebook.com/RestaurantDidar/" target="_blank" class="social-btn">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -924,32 +363,21 @@
           </a>
         </div>
       </div>
-
-      <!-- Google Maps Embed -->
-      <iframe
-        class="map-embed"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=5987+Avenue+Victoria,+Montreal,+Quebec+H3W+2R9&output=embed"
-        title="Didar Restaurant Location"
-      ></iframe>
+      <iframe class="map-embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=5987+Avenue+Victoria,+Montreal,+Quebec+H3W+2R9&output=embed" title="Didar Restaurant Location"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
 <footer>
   <div class="container footer-inner">
     <div class="footer-logo">Did<span>a</span>r</div>
-    <p class="footer-copy">© 2025 Didar Restaurant · Montréal, Québec</p>
-    <p class="footer-note" data-en="Prices subject to change without notice" data-fr="Prix sujets à changement sans préavis">Prices subject to change without notice</p>
+    <p class="footer-copy">&copy; 2025 Didar Restaurant &middot; Montr&eacute;al, Qu&eacute;bec</p>
+    <p class="footer-note" data-en="Prices subject to change without notice" data-fr="Prix sujets &agrave; changement sans pr&eacute;avis">Prices subject to change without notice</p>
   </div>
 </footer>
 
-<!-- ══ SCRIPTS ════════════════════════════════════════════════════════ -->
 <script>
-  // Navbar scroll effect
+  // Navbar scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
@@ -958,14 +386,8 @@
   // Hamburger
   const ham = document.getElementById('hamburger');
   const mob = document.getElementById('mobileMenu');
-  ham.addEventListener('click', () => {
-    ham.classList.toggle('open');
-    mob.classList.toggle('open');
-  });
-  function closeMobile() {
-    ham.classList.remove('open');
-    mob.classList.remove('open');
-  }
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+  function closeMobile() { ham.classList.remove('open'); mob.classList.remove('open'); }
 
   // Menu tabs
   function showTab(name, btn) {
@@ -975,23 +397,51 @@
     btn.classList.add('active');
   }
 
-  // ── Language Toggle ──────────────────────────────────────────────
+  // Language toggle — complex strings (with apostrophes) are stored in JS, not HTML attributes
+  const jsTranslations = {
+    en: {
+      'discount-title': 'Pick-Up Discount',
+      'discount-body':  'Spending between $40 and $100? You qualify for a 5% pick-up discount!<br>Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> \u2014 we welcome it.',
+      'info-hours':     'Tue\u2013Sun <strong>11 am \u2013 10 pm</strong> \u00a0|\u00a0 Mon <strong>3 pm \u2013 10 pm</strong>',
+      'info-delivery':  'Now <strong>Delivering</strong> \u00b7 BYOW',
+      'about-title':    'A Family Passion<br>for Authentic Flavour',
+      'about-p1':       'The name <em>Didar</em> honours the memory of the late father of Paramjit Singh \u2014 a tribute as warm as the food he creates.',
+      'about-p2':       "Paramjit\u2019s love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada \u2014 where he became head chef at the restaurant in 2005 before purchasing it in 2015.",
+      'about-p3':       'In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today \u2014 a place where every dish tells a story of heritage and love.'
+    },
+    fr: {
+      'discount-title': 'Rabais pour emporter',
+      'discount-body':  'Vous d\u00e9pensez entre 40\u00a0$ et 100\u00a0$\u00a0? Vous b\u00e9n\u00e9ficiez d\u2019un rabais de 5\u00a0% \u00e0 l\u2019emporter\u00a0!<br>Informez simplement le caissier lors de la r\u00e9cup\u00e9ration. <strong>Apportez votre propre vin (APAV)</strong> \u2014 nous l\u2019acceptons.',
+      'info-hours':     'Mar\u2013Dim <strong>11h \u2013 22h</strong> \u00a0|\u00a0 Lun <strong>15h \u2013 22h</strong>',
+      'info-delivery':  'Livraison <strong>disponible</strong> \u00b7 APAV',
+      'about-title':    'Une passion familiale<br>pour les saveurs authentiques',
+      'about-p1':       'Le nom <em>Didar</em> honore la m\u00e9moire du d\u00e9funt p\u00e8re de Paramjit Singh \u2014 un hommage aussi chaleureux que sa cuisine.',
+      'about-p2':       "L\u2019amour de Paramjit pour la cuisine prend racine dans son village de Bhadas, au Punjab. Cuisinier pour ses proches d\u00e8s son jeune \u00e2ge, il a perfectionn\u00e9 son art en Allemagne, en Gr\u00e8ce, puis au Canada \u2014 o\u00f9 il est devenu chef en 2005 avant d\u2019acqu\u00e9rir le restaurant en 2015.",
+      'about-p3':       'En 2007, Kamaljit Kaur a rejoint Paramjit au Canada avec leurs trois enfants. Ensemble, ils ont fait de Didar ce qu\u2019il est aujourd\u2019hui \u2014 un endroit o\u00f9 chaque plat raconte une histoire de patrimoine et d\u2019amour.'
+    }
+  };
+
   let currentLang = 'en';
 
   function toggleLang() {
     currentLang = currentLang === 'en' ? 'fr' : 'en';
-    const btn = document.getElementById('langToggle');
-    btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+    document.getElementById('langToggle').textContent = currentLang === 'en' ? 'FR' : 'EN';
+    document.documentElement.lang = currentLang;
 
-    // Update every element that has data-en / data-fr
+    // Simple data-en / data-fr attributes
     document.querySelectorAll('[data-en]').forEach(el => {
       const text = el.getAttribute('data-' + currentLang);
       if (text !== null) el.innerHTML = text;
     });
 
-    // Update html lang attribute for accessibility
-    document.documentElement.lang = currentLang;
+    // JS-stored translations (apostrophes / rich HTML)
+    const t = jsTranslations[currentLang];
+    for (const [id, html] of Object.entries(t)) {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = html;
+    }
   }
 </script>
 
 </body>
+</html>
