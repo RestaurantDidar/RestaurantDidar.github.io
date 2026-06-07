@@ -1,388 +1,998 @@
-<!doctype html>
-    <html class="no-js" lang=""> 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Didar Restaurant</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Didar Restaurant – Authentic Indian Cuisine, Montréal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Variables ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    :root {
+      --saffron:   #E8912B;
+      --saffron-dk:#C47620;
+      --cream:     #FAF6EE;
+      --ink:       #1A1208;
+      --ink-light: #4A3B22;
+      --gold:      #D4A843;
+      --red:       #B8341B;
+      --white:     #FFFFFF;
+      --nav-h:     70px;
+    }
 
-        <!--plugins external css-->
-        <link rel="stylesheet" href="assets/css/animate/animate.css" />
-        <link rel="stylesheet" href="assets/css/plugins.css" />
+    html { scroll-behavior: smooth; }
 
-        <!--custom  css-->
-        <link rel="stylesheet" href="assets/css/style.css">
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
-        <!-- Responsives-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
+    /* ── Utility ─────────────────────────────────────────────────── */
+    .container {
+      width: min(1140px, 92%);
+      margin-inline: auto;
+    }
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--saffron);
+      margin: 1rem 0 1.8rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: .75rem 2rem;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+    .btn-primary {
+      background: var(--saffron);
+      color: var(--white);
+      border: 2px solid var(--saffron);
+    }
+    .btn-primary:hover {
+      background: var(--saffron-dk);
+      border-color: var(--saffron-dk);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.7);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,.15);
+      border-color: var(--white);
+    }
 
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background .35s, box-shadow .35s;
+    }
+    nav.scrolled {
+      background: rgba(26,18,8,.96);
+      box-shadow: 0 2px 20px rgba(0,0,0,.4);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: .05em;
+    }
+    .nav-logo span { color: var(--saffron); }
 
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-    <body>
-            <div class="main_menu_bg">
-                <div class="container"> 
-                    <div class="row">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                    <h4 class="logotop">Didar</h4>
-                                    <!-- <a class="navbar-brand our_logo" href="#"><img src="assets/images/DidarLogo.gif" alt="" width="160px" height="160px"/></a> -->
-                                </div>
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
 
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-phone {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: color .2s;
+    }
+    .nav-phone:hover { color: var(--saffron); }
 
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="#slider">Home</a></li>
-                                        <li><a href="#abouts">About us</a></li>
-                                        <!-- <li><a href="#portfolio">Gallery</a></li> -->
-                                        <li><a href="#ourPakeg">Featured Food</a></li>
-                                        <li><a href="#mobaileapps">Pick Up (Discounts)</a></li>
-                                        <div id="google_translate_element"></div>
-                                    </ul>
-                                </div><!-- /.navbar-collapse -->
-                            </div><!-- /.container-fluid -->
-                        </nav>
-                    </div>
-                </div>
-            </div>	
-        </header> <!-- End Header Section -->
+    /* Language toggle */
+    .lang-toggle {
+      background: none;
+      border: 1.5px solid rgba(255,255,255,.45);
+      color: rgba(255,255,255,.85);
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: .3rem .65rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all .2s;
+      line-height: 1;
+    }
+    .lang-toggle:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+    }
 
-        <section id="slider" class="slider">
-            <div class="slider_overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_slider text-center">
-                            <div class="col-md-12">
-                                <div class="main_slider_content wow zoomIn" data-wow-duration="1s">
-                                    <h1>Didar</h1>
-                                    <h4> An Authentic Indian Restaurant Offering the Best Dining Experience.  </h4>
-                                    <h4> We started delivering. <a href="tel:5147335353">Call us now!</a> </h4>
-                                    <!-- <h4 style="color:lightcoral;">Tiffin service now available </h4>
-                                    <a href="tiffin.html" class="btn-lg">Tiffin Menu</a>  -->
-                                    <a href="Menu2024.pdf" class="btn-lg">Menu</a>
-                    
-                                </div>
-                            </div>	
-                        </div>
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-                    </div>
-                </div>
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(26,18,8,.97);
+      padding: 1.5rem;
+      z-index: 999;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--saffron); }
+
+    /* ── Hero ────────────────────────────────────────────────────── */
+    #home {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(26,18,8,.82) 0%, rgba(184,52,27,.35) 100%),
+        url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1800&auto=format&fit=crop') center/cover no-repeat;
+    }
+    /* Grain overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: .5;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-block: calc(var(--nav-h) + 3rem) 4rem;
+    }
+    .hero-eyebrow {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.4rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--saffron);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,.8);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.4rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      right: min(5%, 80px);
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--saffron);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      z-index: 3;
+      animation: spin-badge 20s linear infinite;
+    }
+    .hero-badge-text {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    @keyframes spin-badge {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Scroll indicator */
+    .scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(255,255,255,.5);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .scroll-cue-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: scroll-line 1.8s ease-in-out infinite;
+    }
+    @keyframes scroll-line {
+      0%,100% { opacity: .3; transform: scaleY(.5); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ── Info Bar ────────────────────────────────────────────────── */
+    .info-bar {
+      background: var(--ink);
+      padding: 1.2rem 0;
+    }
+    .info-bar .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      color: rgba(255,255,255,.7);
+      font-size: .85rem;
+    }
+    .info-item svg { color: var(--saffron); flex-shrink: 0; }
+    .info-item strong { color: var(--white); }
+
+    /* ── About ───────────────────────────────────────────────────── */
+    #about {
+      padding: 6rem 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      border-radius: 4px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 6px solid var(--cream);
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+    }
+    .about-since {
+      position: absolute;
+      top: 1.5rem;
+      left: -1.5rem;
+      background: var(--saffron);
+      color: var(--white);
+      padding: .8rem 1.2rem;
+      text-align: center;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(232,145,43,.4);
+    }
+    .about-since .year {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      display: block;
+      line-height: 1;
+    }
+    .about-since .since { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
+
+    .about-text p {
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: .97rem;
+    }
+    .about-text p:last-of-type { margin-bottom: 1.8rem; }
+
+    /* ── Menu Highlights ─────────────────────────────────────────── */
+    #menu {
+      background: var(--ink);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #menu::before {
+      content: 'MENU';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 22vw;
+      font-weight: 900;
+      color: rgba(255,255,255,.02);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    #menu .section-label { color: var(--gold); }
+    #menu .section-title { color: var(--white); }
+    #menu .divider { background: var(--gold); }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .menu-tabs {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .menu-tab {
+      padding: .5rem 1.2rem;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 2px;
+      color: rgba(255,255,255,.6);
+      background: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: all .25s;
+    }
+    .menu-tab.active, .menu-tab:hover {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: var(--white);
+    }
+
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; }
+
+    .menu-item {
+      background: rgba(255,255,255,.04);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: background .2s;
+    }
+    .menu-item:hover { background: rgba(232,145,43,.08); }
+    .menu-item-name {
+      color: rgba(255,255,255,.85);
+      font-size: .95rem;
+      font-weight: 400;
+    }
+    .menu-item-price {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .menu-full-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    /* ── Discount Banner ─────────────────────────────────────────── */
+    #discount {
+      background: var(--saffron);
+      padding: 4rem 0;
+    }
+    .discount-inner {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .discount-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .discount-icon svg { color: var(--white); }
+    .discount-text { flex: 1; min-width: 200px; }
+    .discount-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--white);
+      margin-bottom: .5rem;
+    }
+    .discount-text p { color: rgba(255,255,255,.85); line-height: 1.6; font-size: .97rem; }
+    .discount-pill {
+      background: var(--white);
+      color: var(--saffron);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      padding: .8rem 1.8rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* ── Location ────────────────────────────────────────────────── */
+    #location {
+      padding: 6rem 0;
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .location-details { display: flex; flex-direction: column; gap: 1.6rem; }
+    .location-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .detail-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(232,145,43,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .detail-icon svg { color: var(--saffron); }
+    .detail-text h4 {
+      font-weight: 600;
+      font-size: .85rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: .3rem;
+    }
+    .detail-text p, .detail-text a {
+      color: var(--ink);
+      font-size: .97rem;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+    .detail-text a:hover { color: var(--saffron); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .4rem 1.5rem;
+      font-size: .9rem;
+    }
+    .hours-day { color: var(--ink-light); font-weight: 500; }
+    .hours-time { color: var(--ink); }
+    .hours-closed { color: var(--red); font-weight: 600; }
+
+    .map-embed {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 4px;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.2rem;
+      border: 1.5px solid rgba(26,18,8,.15);
+      border-radius: 2px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      transition: all .2s;
+    }
+    .social-btn:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      background: rgba(232,145,43,.05);
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--saffron); }
+    .footer-copy {
+      color: rgba(255,255,255,.4);
+      font-size: .8rem;
+    }
+    .footer-note {
+      color: rgba(255,255,255,.35);
+      font-size: .75rem;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-grid, .location-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { max-width: 480px; }
+      .about-img-accent { display: none; }
+      .about-since { left: 1rem; }
+      .discount-inner { flex-direction: column; align-items: flex-start; }
+      .discount-icon { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .menu-panel.active { grid-template-columns: 1fr; }
+      .hero-badge { display: none; }
+      .info-bar .container { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#home" class="nav-logo">Did<span>a</span>r</a>
+    <ul class="nav-links">
+      <li><a href="#home"     data-en="Home"     data-fr="Accueil">Home</a></li>
+      <li><a href="#about"    data-en="About"    data-fr="À propos">About</a></li>
+      <li><a href="#menu"     data-en="Menu"     data-fr="Menu">Menu</a></li>
+      <li><a href="#discount" data-en="Offers"   data-fr="Offres">Offers</a></li>
+      <li><a href="#location" data-en="Find Us"  data-fr="Nous trouver">Find Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+15147335353" class="nav-phone">514 733 5353</a>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Switch language">FR</button>
+      <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="View Menu" data-fr="Voir le menu">View Menu</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"     onclick="closeMobile()" data-en="Home"     data-fr="Accueil">Home</a>
+  <a href="#about"    onclick="closeMobile()" data-en="About"    data-fr="À propos">About</a>
+  <a href="#menu"     onclick="closeMobile()" data-en="Menu"     data-fr="Menu">Menu</a>
+  <a href="#discount" onclick="closeMobile()" data-en="Offers"   data-fr="Offres">Offers</a>
+  <a href="#location" onclick="closeMobile()" data-en="Find Us"  data-fr="Nous trouver">Find Us</a>
+  <a href="tel:+15147335353" onclick="closeMobile()">📞 514 733 5353</a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow" data-en="Authentic Indian Cuisine · Montréal since 2015" data-fr="Cuisine indienne authentique · Montréal depuis 2015">Authentic Indian Cuisine · Montréal since 2015</p>
+    <h1 class="hero-title" data-en="A Taste of<br><em>Punjab</em><br>in Montréal" data-fr="Les saveurs du<br><em>Punjab</em><br>à Montréal">A Taste of<br><em>Punjab</em><br>in Montréal</h1>
+    <p class="hero-sub" data-en="Family recipes crafted with love — from the villages of Punjab to your table. Now also delivering. Give us a call!" data-fr="Des recettes familiales préparées avec amour — des villages du Punjab à votre table. Nous livrons maintenant aussi. Appelez-nous !">
+      Family recipes crafted with love — from the villages of Punjab to your table.
+      Now also delivering. Give us a call!
+    </p>
+    <div class="hero-actions">
+      <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="View Full Menu" data-fr="Voir le menu complet">View Full Menu</a>
+      <a href="tel:+15147335353" class="btn btn-outline" data-en="Call to Order" data-fr="Commander par téléphone">Call to Order</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <p class="hero-badge-text">Since&nbsp;2015<br>★ ★ ★</p>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-cue-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══ INFO BAR ══════════════════════════════════════════════════════ -->
+<div class="info-bar">
+  <div class="container">
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>5987 Ave Victoria, <strong>Montréal</strong> H3W 2R9</span>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:+15147335353" style="color:inherit;text-decoration:none;"><strong>514 733 5353</strong></a>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span data-en="Tue–Sun <strong>11 am – 10 pm</strong> &nbsp;|&nbsp; Mon 13 am - 10 pm" data-fr="Mar–Dim <strong>11h – 22h</strong> &nbsp;|&nbsp; Lun <strong>15 - 22h</strong>">Tue–Sun <strong>11 am – 10 pm</strong> &nbsp;|&nbsp; Mon <strong>13 pm - 10 pm</strong></span>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span data-en="Now <strong>Delivering</strong> · BYOW" data-fr="Livraison <strong>disponible</strong> · APAV">Now <strong>Delivering</strong> · BYOW</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=800&auto=format&fit=crop"
+          alt="Didar Restaurant dining experience"
+          class="about-img-main"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&auto=format&fit=crop"
+          alt="Indian spices"
+          class="about-img-accent"
+        />
+        <div class="about-since">
+          <span class="year">2015</span>
+          <span class="since">Est.</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p class="section-label" data-en="Our Story" data-fr="Notre histoire">Our Story</p>
+        <h2 class="section-title" data-en="A Family Passion<br>for Authentic Flavour" data-fr="Une passion familiale<br>pour les saveurs authentiques">A Family Passion<br>for Authentic Flavour</h2>
+        <div class="divider"></div>
+        <p data-en='The name <em>Didar</em> honours the memory of the late father of Paramjit Singh — a tribute as warm as the food he creates.' data-fr='Le nom <em>Didar</em> honore la mémoire du défunt père de Paramjit Singh — un hommage aussi chaleureux que sa cuisine.'>
+          The name <em>Didar</em> honours the memory of the late father of Paramjit Singh — a tribute as warm as the food he creates.
+        </p>
+        <p data-en="Paramjit's love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada — where he became head chef at the restaurant in 2005 before purchasing it in 2015." data-fr="L'amour de Paramjit pour la cuisine prend racine dans son village de Bhadas, au Punjab. Cuisinier pour ses proches dès son jeune âge, il a perfectionné son art en Allemagne, en Grèce, puis au Canada — où il est devenu chef en 2005 avant d'acquérir le restaurant en 2015.">
+          Paramjit's love for cuisine is rooted in his village of Bhadas, Punjab. Cooking for friends and family from an early age, he refined his craft across Germany, Greece, and eventually Canada — where he became head chef at the restaurant in 2005 before purchasing it in 2015.
+        </p>
+        <p data-en="In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today — a place where every dish tells a story of heritage and love." data-fr="En 2007, Kamaljit Kaur a rejoint Paramjit au Canada avec leurs trois enfants. Ensemble, ils ont fait de Didar ce qu'il est aujourd'hui — un endroit où chaque plat raconte une histoire de patrimoine et d'amour.">
+          In 2007, Kamaljit Kaur joined Paramjit in Canada with their three children. Together they built Didar into what it is today — a place where every dish tells a story of heritage and love.
+        </p>
+        <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="See Our Menu" data-fr="Voir notre menu">See Our Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MENU ══════════════════════════════════════════════════════════ -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <div>
+        <p class="section-label" data-en="Didar Specials" data-fr="Spécialités Didar">Didar Specials</p>
+        <h2 class="section-title" style="color:var(--white)" data-en="Our Best" data-fr="Nos Meilleurs">Our Best</h2>
+        <div class="divider" style="background:var(--gold)"></div>
+      </div>
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="showTab('drinks', this)" data-en="Drinks" data-fr="Boissons">Drinks</button>
+        <button class="menu-tab" onclick="showTab('mains', this)" data-en="Main Course" data-fr="Plats principaux">Main Course</button>
+        <button class="menu-tab" onclick="showTab('desserts', this)" data-en="Desserts" data-fr="Desserts">Desserts</button>
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="menu-panel active" id="tab-drinks">
+      <div class="menu-item"><span class="menu-item-name">Mango Lassi</span><span class="menu-item-price">$6</span></div>
+      <div class="menu-item"><span class="menu-item-name">Mango Shake</span><span class="menu-item-price">$6</span></div>
+      <div class="menu-item"><span class="menu-item-name">Limca (Imported)</span><span class="menu-item-price">$5</span></div>
+      <div class="menu-item"><span class="menu-item-name">Fanta (Imported)</span><span class="menu-item-price">$5</span></div>
+      <div class="menu-item"><span class="menu-item-name">Thums Up (Imported)</span><span class="menu-item-price">$5</span></div>
+    </div>
+
+    <!-- Mains -->
+    <div class="menu-panel" id="tab-mains">
+      <div class="menu-item"><span class="menu-item-name">Amritsari Thali</span><span class="menu-item-price">$16</span></div>
+      <div class="menu-item"><span class="menu-item-name">Channa Bhatura</span><span class="menu-item-price">$16</span></div>
+      <div class="menu-item"><span class="menu-item-name">Chicken Briyani</span><span class="menu-item-price">$16</span></div>
+      <div class="menu-item"><span class="menu-item-name">Butter Chicken</span><span class="menu-item-price">$17.5</span></div>
+      <div class="menu-item"><span class="menu-item-name">Panner Butter Masala</span><span class="menu-item-price">$17.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Dal Makhni</span><span class="menu-item-price">$14</span></div>
+
+    </div>
+
+    <!-- Desserts -->
+    <div class="menu-panel" id="tab-desserts">
+      <div class="menu-item"><span class="menu-item-name">Barfi</span><span class="menu-item-price">$3.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Jalebi</span><span class="menu-item-price">$3.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Kheer</span><span class="menu-item-price">$3.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Ras Malai</span><span class="menu-item-price">$3.50</span></div>
+      <div class="menu-item"><span class="menu-item-name">Gulab Jamun</span><span class="menu-item-price">$3.50</span></div>
+    </div>
+
+    <div class="menu-full-cta">
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:1rem;" data-en="* Prices subject to change without notice" data-fr="* Prix sujets à changement sans préavis">* Prices subject to change without notice</p>
+      <a href="https://restaurantdidar.com/MENU2026.pdf" target="_blank" class="btn btn-primary" data-en="Download Full Menu PDF" data-fr="Télécharger le menu complet (PDF)">Download Full Menu PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DISCOUNT ══════════════════════════════════════════════════════ -->
+<section id="discount">
+  <div class="container">
+    <div class="discount-inner">
+      <div class="discount-icon">
+        <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      </div>
+      <div class="discount-text">
+        <h2 data-en="Pick-Up Discount" data-fr="Rabais pour emporter">Pick-Up Discount</h2>
+        <p data-en='Spending between $40 and $100? You qualify for a 5% pick-up discount!<br/>Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> — we welcome it.' data-fr='Vous dépensez entre 40 $ et 100 $ ? Vous bénéficiez d'un rabais de 5 % à l'emporter !<br/>Informez simplement le caissier lors de la récupération. <strong>Apportez votre propre vin (APAV)</strong> — nous l'acceptons.'>
+          Spending between $40 and $100? You qualify for a 5% pick-up discount!<br/>
+          Simply let the cashier know when you pick up your order. <strong>Bring your own wine (BYOW)</strong> — we welcome it.
+        </p>
+      </div>
+      <div class="discount-pill">5% OFF</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOCATION ══════════════════════════════════════════════════════ -->
+<section id="location">
+  <div class="container">
+    <p class="section-label" style="text-align:center" data-en="Come Visit Us" data-fr="Venez nous rendre visite">Come Visit Us</p>
+    <h2 class="section-title" style="text-align:center" data-en="Find Us in Montréal" data-fr="Trouvez-nous à Montréal">Find Us in Montréal</h2>
+    <div class="divider" style="margin-inline:auto"></div>
+
+    <div class="location-grid" style="margin-top:3rem">
+      <div class="location-details">
+        <div class="location-detail">
+          <div class="detail-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="detail-text">
+            <h4 data-en="Address" data-fr="Adresse">Address</h4>
+            <p>5987 Avenue Victoria<br>Montréal, Québec H3W 2R9</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="detail-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="detail-text">
+            <h4 data-en="Opening Hours" data-fr="Heures d'ouverture">Opening Hours</h4>
+            <div class="hours-grid">
+              <span class="hours-day" data-en="Monday" data-fr="Lundi">Monday</span><span class="hours-time" data-en="15:00 am – 10:00 pm" data-fr="15h00 – 22h00">15:00 am – 10:00 pm</span>
+              <span class="hours-day" data-en="Tue – Sun" data-fr="Mar – Dim">Tue – Sun</span><span class="hours-time" data-en="11:00 am – 10:00 pm" data-fr="11h00 – 22h00">11:00 am – 10:00 pm</span>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="detail-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.92 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="detail-text">
+            <h4 data-en="Phone" data-fr="Téléphone">Phone</h4>
+            <a href="tel:+15147335353">514 733 5353</a>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="detail-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="detail-text">
+            <h4 data-en="Email" data-fr="Courriel">Email</h4>
+            <a href="mailto:restaurantdidar@gmail.com">restaurantdidar@gmail.com</a>
+          </div>
+        </div>
 
-        <section id="abouts" class="abouts">
-            <div class="container"1 >
-                <div class="row">
-                    <div class="abouts_content">
-                        <div class="col-md-6">
-                            <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
-                                <img src="assets/images/FamilyGif.gif" alt="" id="imageEditsF"/>
-                            </div>
-                        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/RestaurantDidar/" target="_blank" class="social-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/restaurantdidar/" target="_blank" class="social-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
 
-                        <div class="col-md-6">
-                            <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
-                                <h4>About us</h4>
-                                <h4>Didar Restaurant</h4>
-                                <p>The restaurant name, Didar, is in the memory of the late father of Pramajit Singh.</p>
+      <!-- Google Maps Embed -->
+      <iframe
+        class="map-embed"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=5987+Avenue+Victoria,+Montreal,+Quebec+H3W+2R9&output=embed"
+        title="Didar Restaurant Location"
+      ></iframe>
+    </div>
+  </div>
+</section>
 
-                                <p>Paramjit's love for cuisine roots from his village Bhadas, in Punjab. From an early age, he cooked for his friends and family. He finally decided to move to Germany and later to Greece to ace his 
-                                    culinary knowledge. He spent his early 20s' in Europe, and then made the decision to move across the world to Canada. Where he started
-                                as head chef at the previous restaurant in 2005 and then bought over the business in 2015.    </p>
-                                
-                                <p> In 2007, Kamaljit Kaur, wife of Paramjit came to Canada with their 3 children. She along side Paramjit proposed the idea of purchasing the previous restaurant, and in 2015 they purshased Didar. "Didar" was also proposed by Kamaljit in honour of her father in law.  </p>
-                                <p>See our menu!</p>
-                                <a href="MenuDecember2022.pdf" class="">Menu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Did<span>a</span>r</div>
+    <p class="footer-copy">© 2025 Didar Restaurant · Montréal, Québec</p>
+    <p class="footer-note" data-en="Prices subject to change without notice" data-fr="Prix sujets à changement sans préavis">Prices subject to change without notice</p>
+  </div>
+</footer>
 
-        <!-- <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="portfolio_content text-center  wow fadeIn" data-wow-duration="5s">
-                        <div class="col-md-12">
-                            <div class="head_title text-center">
-                                <h4>Delightful</h4>
-                                <h4>Experience (Coming Soon)</h4>
-                            </div>
+<!-- ══ SCRIPTS ════════════════════════════════════════════════════════ -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
 
-                            <div class="main_portfolio_content">
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p2.png" alt="" id="Editimage"/>
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Veg Manchurian</h6>
-                                        <p class="product_price">$12</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p2.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Chicken Tikka</h6>
-                                        <p class="product_price">$12</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p3.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Channa Bhatura</h6>
-                                        <p class="product_price">$12.5</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p4.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Butter Chicken</h6>
-                                        <p class="product_price">$12</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p5.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Saag Panner</h6>
-                                        <p class="product_price">$12</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p6.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Panner Tikka</h6>
-                                        <p class="product_price">$12</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p7.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Naan</h6>
-                                        <p class="product_price">$2</p>
-                                    </div>								
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                    <img src="assets/images/p8.png" alt="" />
-                                    <div class="portfolio_images_overlay text-center">
-                                        <h6>Garlic Naan</h6>
-                                        <p class="product_price">$3</p>
-                                    </div>								
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  function closeMobile() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+  }
 
-        <section id="ourPakeg" class="ourPakeg">
-            <div class="container">
-                <div class="main_pakeg_content">
-                    <div class="row">
-                        <div class="head_title text-center">
-                            <h4>Didar Specials</h4>
-                            <h4> Our Best </h4>
-                        </div>
+  // Menu tabs
+  function showTab(name, btn) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
 
-                        <div class="single_pakeg_one text-right wow rotateInDownRight">
-                            <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4 id="moveDrinks">Drinks</h4>
-                                    </div>
+  // ── Language Toggle ──────────────────────────────────────────────
+  let currentLang = 'en';
 
-                                    <ul>
-                                        <li> Mango Lassi......................................$6 </li>
-                                        <li> Mango Shake......................................$6 </li>
-                                        <li> Limca Glass(Imported) ......................................$5 </li>                                       
-                                        <li> Fanta Glass(Imported) .......................................$5 </li>
-                                        <li> Thums Up Glass(Imported) ......................................$x </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'fr' : 'en';
+    const btn = document.getElementById('langToggle');
+    btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
 
-                        <div class="single_pakeg_two text-left wow rotateInDownLeft">
-                            <div class="col-md-6 col-sm-8">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4>Main course </h4>
-                                    </div>
+    // Update every element that has data-en / data-fr
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + currentLang);
+      if (text !== null) el.innerHTML = text;
+    });
 
-                                    <ul>
-                                        <li> Veg Manchurian....................$x </li>
-                                        <li> Chicken Tikka.............................$x </li>
-                                        <li> Butter Chicken.............................$x </li>                                      
-                                        <li> Panner Tikka................................$x </li>                                        
-                                        <li> Channa Bhatura.............................$x </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+    // Update html lang attribute for accessibility
+    document.documentElement.lang = currentLang;
+  }
+</script>
 
-                        <div class="single_pakeg_three text-left wow rotateInDownRight">
-                            <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4>Desserts</h4>
-                                    </div>
-
-                                    <ul>
-                                        <li> Barfi....................................$x </li>
-                                        <li> Jalebi....................................$x </li>                                    
-                                        <li> Kheer....................................$x </li>
-                                        <li> Ras Malai..................................$x </li>
-                                        <li> Gulab Jamun..................................$x </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="mobaileapps" class="mobailapps">
-            <div class="slider_overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_mobail_apps_content wow zoomIn">
-                            <h4 class="discountTxt">Discounts</h4>
-                            <div class="col-md-5 col-sm-12 text-center">
-                                <!-- <img src="assets/images/iphone.png" alt="" /> -->
-                                  <img src="assets/images/butterSc.jpg" alt="" class="imgtoEdit"/>                                 
-                            </div>
-                            <div class="col-md-7 col-sm-12">
-                                <div class="single_monail_apps_text">
-                                    <h4 class="discount"> Between 40-100$ a 5% is applicable</h4>
-                                    <!-- <h4 class="discount"> Between 100-150$ a 7% is applicable</h4>
-                                    <h4 class="discount"> Between 150-200$ a 10% is applicable</h4> -->
-                                    <h4> Must tell the cashier <span> for the discount</span></h4>
-
-                                    <h4 class="discount"> Bring your own <a>WINE</a></h4>
-                                    <h4> BYOW </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="footer_widget" class="footer_widget">
-            <div class="container">
-                <div class="row">
-                    <div class="footer_widget_content text-center">
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="2s">
-                                <h3>Our Location</h3>
-
-                                <div class="single_widget_info">
-                                    <p>5987 Avenue Victoria.
-
-                                        <span>Montreal, Quebec H3W 2R9,</span>
-                                        <span>Canada</span>
-                                        <span class="phone_email"><p>Phone: <a href="tel:+15147335353">514 733 5353</a></p></span>
-                                        <span>Email: <a href="mailto:restaurantdidar@gmail.com">restaurantdidar@gmail.com</a></span></p>
-                                </div>
-
-                                <div class="footer_socail_icon">
-                                    <a href="https://www.facebook.com/RestaurantDidar/"><i class="fa fa-facebook"></i></a>
-                                    <i class="fab fa-tiktok"></i>                        
-                                    <a href="https://www.instagram.com/restaurantdidar/?hl=en"><i class="fa fa-instagram"></i></a>
-                                    <a href="tel:514-733-5353"><i class="fa fa-phone"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="4s">
-                                <h3>Our Opening Hours </h3>
-
-                                <div class="single_widget_info">
-                                    <p>
-                                        <span class="date_day">Monday</span>
-                                        <span>Day Off</span>
-                                        
-                                        <span class="date_day">Tuesday To Sunday</span>
-                                        <span>11:00am to 10:00pm</span>
-                                    </p>
-                                    <p id="sptesxt">T&C*:Prices are subjected to change without notice</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="5s">
-                                <h3>Contact Us</h3>
-
-                                <div class="single_widget_form text-left">
-                                    <form id="contact-form">
-                                        <input type="hidden" name="contact_number">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="to_name" placeholder="First Name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="from_name" placeholder="Your Email" required="">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
-                                        </div>
-
-                                        <input type="submit" value="send" class="btn btn-primary">
-                                    </form>	                              
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-		
-		<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>		
-
-    
-
-
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-
-        <script src="assets/js/jquery-easing/jquery.easing.1.3.js"></script>
-        <script src="assets/js/wow/wow.min.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
-
-        <script src="script.js"></script>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {pageLanguage: 'en'},
-                'google_translate_element'
-            );
-        } 
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </body>
+</body>
 </html>
-
